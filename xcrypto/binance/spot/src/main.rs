@@ -49,10 +49,10 @@ async fn main() -> anyhow::Result<()> {
     let _logger = init(Some(format!("log/{}", filename)), args.level);
 
     let app = Application::new(&config.local).await?;
-    let market = Market::new("wss://stream.binance.com:9443/ws".into()).await?;
+    let market = Market::new("wss://stream.testnet.binance.vision:9443/ws".into()).await?;
 
     let rest = Arc::new(Rest::new(
-        "https://api.binance.com",
+        "https://testnet.binance.vision/api",
         &config.apikey,
         &config.pem,
         3000,
@@ -60,14 +60,14 @@ async fn main() -> anyhow::Result<()> {
 
     let account = if config.margin {
         Account::<SpotListenKey>::new(
-            "wss://stream.binance.com:9443/ws",
+            "wss://stream.testnet.binance.vision:9443/ws",
             "/sapi/v1/userDataStream",
             rest.clone(),
         )
         .await?
     } else {
         Account::<SpotListenKey>::new(
-            "wss://stream.binance.com:9443/ws",
+            "wss://stream.testnet.binance.vision:9443/ws",
             "/api/v3/userDataStream",
             rest.clone(),
         )
