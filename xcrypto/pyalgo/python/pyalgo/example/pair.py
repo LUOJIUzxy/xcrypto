@@ -23,7 +23,7 @@ class Demo:
 if __name__ == "__main__":
     eng = Engine(0.001)
     session = eng.make_session(
-        addr="ws://localhost:8111", session_id=1, name="test", trading=True
+        addr="ws://localhost:8111", session_id=1, name="test", trading=False
     )
 
     leading = session.subscribe("dogeusdt", "depth")

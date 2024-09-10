@@ -1,0 +1,3 @@
+[21:58:31.533313 app.rs 17 INFO] -------------------- Start --------------------
+[21:58:31.534285 ws.rs 126 INFO] Bind address ws://localhost:8111/
+[21:58:33.138379 ws.rs 107 INFO] Connect to wss://stream.testnet.binance.vision:9443/ws
